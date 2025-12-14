@@ -1,0 +1,361 @@
+/* --- CSS Variables for Theming --- */
+:root {
+  --bg-primary: #1a1a1a;        /* Dark main background */
+  --bg-secondary: #2d2d2d;      /* Lighter background for cards */
+  --bg-tertiary: #3a3a3a;       /* Even lighter for hover effects */
+  --text-primary: #f0f0f0;      /* Main text color (white) */
+  --text-secondary: #b0b0b0;    /* Secondary text color (light gray) */
+  --accent-color: #007bff;      /* A nice blue for buttons and highlights */
+  --accent-hover: #0056b3;      /* Darker blue for hover */
+  --danger-color: #dc3545;
+  --success-color: #28a745;
+  --border-color: #444444;
+  --shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  --transition: all 0.3s ease-in-out;
+}
+
+/* --- Global Styles & Resets --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.6;
+  transition: var(--transition);
+}
+
+a {
+  color: var(--accent-color);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: 600;
+  background-color: var(--accent-color);
+  color: white;
+  transition: var(--transition);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+button:hover {
+  background-color: var(--accent-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+button:disabled {
+  background-color: #555;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+input, select {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  background-color: var(--bg-tertiary);
+  color: var(--text-primary);
+  font-size: 1rem;
+  transition: var(--transition);
+}
+
+input:focus, select:focus {
+  outline: none;
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+}
+
+/* --- Loading State --- */
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-size: 1.5rem;
+  color: var(--text-secondary);
+}
+
+/* --- Authentication Pages (Login/Register) --- */
+.auth-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: var(--bg-primary);
+}
+
+.auth-card {
+  background-color: var(--bg-secondary);
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+}
+
+.auth-card h2 {
+  margin-bottom: 25px;
+  color: var(--text-primary);
+  font-weight: 300;
+  letter-spacing: 1px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--text-secondary);
+  font-weight: 600;
+}
+
+.error-message {
+  background-color: var(--danger-color);
+  color: white;
+  padding: 12px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* --- Dashboard Layout --- */
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.dashboard-header {
+  background-color: var(--bg-secondary);
+  padding: 15px 30px;
+  box-shadow: var(--shadow);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.header-content h1 {
+  font-weight: 300;
+  letter-spacing: 1px;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.user-info span {
+  font-weight: 600;
+}
+
+.user-info button {
+  background-color: var(--danger-color);
+  padding: 8px 15px;
+  font-size: 0.9rem;
+}
+
+.user-info button:hover {
+  background-color: #c82333;
+}
+
+.dashboard-tabs {
+  display: flex;
+  background-color: var(--bg-secondary);
+  border-bottom: 2px solid var(--border-color);
+}
+
+.tab {
+  flex: 1;
+  padding: 15px;
+  background: transparent;
+  border: none;
+  border-bottom: 3px solid transparent;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: var(--transition);
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.tab:hover {
+  background-color: var(--bg-tertiary);
+  color: var(--text-primary);
+}
+
+.tab.active {
+  color: var(--accent-color);
+  border-bottom-color: var(--accent-color);
+}
+
+.dashboard-content {
+  flex: 1;
+  padding: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* --- Content Containers & Cards --- */
+.content-container h2 {
+  margin-bottom: 25px;
+  font-weight: 300;
+  color: var(--text-primary);
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 10px;
+}
+
+.card-list {
+  display: grid;
+  gap: 20px;
+}
+
+.card {
+  background-color: var(--bg-secondary);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  padding: 20px;
+  transition: var(--transition);
+  border: 1px solid var(--border-color);
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.6);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.card-header h3 {
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+.card-details p {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+.amount {
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: var(--text-primary);
+}
+
+.amount.positive {
+  color: var(--success-color);
+}
+
+.amount.negative {
+  color: var(--danger-color);
+}
+
+/* --- Add Expense Form --- */
+.participants-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 10px;
+  max-height: 150px;
+  overflow-y: auto;
+  padding: 10px;
+  background-color: var(--bg-tertiary);
+  border-radius: 8px;
+}
+
+.participant-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.participant-item input[type="checkbox"] {
+  width: auto;
+  cursor: pointer;
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 768px) {
+  .dashboard-header, .dashboard-content {
+    padding: 15px;
+  }
+  
+  .header-content {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .card-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  
+  .dashboard-tabs {
+    overflow-x: auto;
+  }
+  
+  .tab {
+    min-width: 120px;
+  }
+}
+
+
+/* --- Payment Button --- */
+.payment-button {
+  background-color: var(--success-color);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 16px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: var(--transition);
+  margin-top: 15px;
+  width: 100%;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.payment-button:hover {
+  background-color: #218838;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.payment-button:disabled {
+  background-color: #555;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
